@@ -24,38 +24,54 @@ from ai.engine import AIEngine
 from ai.text_renderer import put_chinese_text, draw_panel
 
 
-def draw_ranking_panel(frame, rankings, start_time):
+def draw_ranking_panel(frame, rankings, start_time, max_show=20):
     if not rankings:
         return frame
     panel_x, panel_y = 15, 50
     panel_w = 300
-    row_h = 42
-    header_h = 40
-    num_ranks = min(len(rankings), 8)
-    panel_h = header_h + num_ranks * row_h + 10
+    row_h = 36
+    header_h = 36
+    total = min(len(rankings), max_show)
+    
+    # 两列布局（超过10人分两列）
+    if total > 10:
+        col_count = 2
+        rows_per_col = (total + 1) // 2
+    else:
+        col_count = 1
+        rows_per_col = total
+    
+    panel_w = 300 * col_count if col_count > 1 else 300
+    panel_h = header_h + rows_per_col * row_h + 8
+    
     frame = draw_panel(frame, panel_x, panel_y, panel_w, panel_h)
     cv2.rectangle(frame, (panel_x, panel_y), (panel_x + panel_w, panel_y + header_h), (0, 140, 255), -1)
-    frame = put_chinese_text(frame, "实时排名", (panel_x + 15, panel_y + 8), color=(255, 255, 255), size=22, bg_color=(0, 140, 255))
+    frame = put_chinese_text(frame, f"实时排名（共{len(rankings)}人完赛）", (panel_x + 15, panel_y + 6), color=(255, 255, 255), size=20, bg_color=(0, 140, 255))
     rank_colors = {1: (0, 215, 255), 2: (192, 192, 192), 3: (0, 140, 255)}
-    for i, r in enumerate(rankings[:8]):
-        y = panel_y + header_h + i * row_h + 5
+    
+    for i, r in enumerate(rankings[:total]):
+        col = i // rows_per_col
+        row = i % rows_per_col
+        x_offset = col * 300
+        y = panel_y + header_h + row * row_h + 4
+        
         rank_color = rank_colors.get(r["rank"], (100, 100, 100))
-        cv2.circle(frame, (panel_x + 25, y + 16), 15, rank_color, -1)
-        frame = put_chinese_text(frame, str(r["rank"]), (panel_x + 25, y + 5), color=(255, 255, 255), size=18, align="center")
+        cv2.circle(frame, (panel_x + x_offset + 22, y + 14), 13, rank_color, -1)
+        frame = put_chinese_text(frame, str(r["rank"]), (panel_x + x_offset + 22, y + 3), color=(255, 255, 255), size=16, align="center")
         lane = r.get("lane")
         lane_text = f"{lane}号" if lane else "-"
-        frame = put_chinese_text(frame, lane_text, (panel_x + 50, y + 8), color=(200, 200, 200), size=16)
+        frame = put_chinese_text(frame, lane_text, (panel_x + x_offset + 45, y + 5), color=(200, 200, 200), size=14)
         color_bgr = r.get("color_bgr", (128, 128, 128))
-        cv2.rectangle(frame, (panel_x + 100, y + 5), (panel_x + 125, y + 28), color_bgr, -1)
-        cv2.rectangle(frame, (panel_x + 100, y + 5), (panel_x + 125, y + 28), (100, 100, 100), 1)
+        cv2.rectangle(frame, (panel_x + x_offset + 90, y + 3), (panel_x + x_offset + 110, y + 24), color_bgr, -1)
+        cv2.rectangle(frame, (panel_x + x_offset + 90, y + 3), (panel_x + x_offset + 110, y + 24), (100, 100, 100), 1)
         color_name = r.get("color_name", "未知")
-        frame = put_chinese_text(frame, color_name, (panel_x + 132, y + 8), color=(255, 255, 255), size=15)
+        frame = put_chinese_text(frame, color_name, (panel_x + x_offset + 115, y + 5), color=(255, 255, 255), size=13)
         if start_time is not None:
             elapsed = r["timestamp"] - start_time
             time_text = f"{elapsed:.2f}s"
         else:
             time_text = "-"
-        frame = put_chinese_text(frame, time_text, (panel_x + 215, y + 8), color=(0, 255, 100), size=16)
+        frame = put_chinese_text(frame, time_text, (panel_x + x_offset + 200, y + 5), color=(0, 255, 100), size=14)
     return frame
 
 

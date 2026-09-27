@@ -5,31 +5,45 @@
     "video_fps": 29.5,
     "total_frames": 367,
     "duration": 12.4,
-    "analysis_time": 57.5,
-    "avg_fps": 6.4,
+    "analysis_time": 77.3,
+    "avg_fps": 4.7,
     "max_tracked": 8,
     "total_unique_ids": 48,
-    "total_rankings": 17
+    "total_rankings": 26
   },
   "rankings": [
     {
-      "id": 4,
+      "id": 1,
       "timestamp": 0.305,
       "rank": 1,
       "direction": "crossing",
       "class_name": "person",
-      "lane": 4,
-      "color_name": "黑色",
+      "lane": 2,
+      "color_name": "灰色",
+      "color_bgr": [
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "id": 7,
+      "timestamp": 0.576,
+      "rank": 2,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 7,
+      "color_name": "红色",
       "color_bgr": [
         0,
         0,
-        0
+        255
       ]
     },
     {
       "id": 2,
-      "timestamp": 0.508,
-      "rank": 2,
+      "timestamp": 0.847,
+      "rank": 3,
       "direction": "crossing",
       "class_name": "person",
       "lane": 5,
@@ -41,26 +55,12 @@
       ]
     },
     {
-      "id": 8,
-      "timestamp": 0.847,
-      "rank": 3,
-      "direction": "crossing",
-      "class_name": "person",
-      "lane": 8,
-      "color_name": "红色",
-      "color_bgr": [
-        0,
-        0,
-        255
-      ]
-    },
-    {
-      "id": 11,
-      "timestamp": 1.558,
+      "id": 10,
+      "timestamp": 0.982,
       "rank": 4,
       "direction": "crossing",
       "class_name": "person",
-      "lane": 11,
+      "lane": 10,
       "color_name": "黑色",
       "color_bgr": [
         0,
@@ -69,9 +69,23 @@
       ]
     },
     {
-      "id": 6,
-      "timestamp": 2.541,
+      "id": 4,
+      "timestamp": 1.592,
       "rank": 5,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 4,
+      "color_name": "红色",
+      "color_bgr": [
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "id": 6,
+      "timestamp": 2.846,
+      "rank": 6,
       "direction": "crossing",
       "class_name": "person",
       "lane": 6,
@@ -83,9 +97,37 @@
       ]
     },
     {
+      "id": 13,
+      "timestamp": 3.252,
+      "rank": 7,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 13,
+      "color_name": "红色",
+      "color_bgr": [
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "id": 16,
+      "timestamp": 3.354,
+      "rank": 8,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 16,
+      "color_name": "灰色",
+      "color_bgr": [
+        128,
+        128,
+        128
+      ]
+    },
+    {
       "id": 15,
-      "timestamp": 3.625,
-      "rank": 6,
+      "timestamp": 4.167,
+      "rank": 9,
       "direction": "crossing",
       "class_name": "person",
       "lane": 15,
@@ -98,8 +140,8 @@
     },
     {
       "id": 21,
-      "timestamp": 4.878,
-      "rank": 7,
+      "timestamp": 5.387,
+      "rank": 10,
       "direction": "crossing",
       "class_name": "person",
       "lane": 19,
@@ -111,9 +153,23 @@
       ]
     },
     {
+      "id": 23,
+      "timestamp": 5.522,
+      "rank": 11,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 21,
+      "color_name": "红色",
+      "color_bgr": [
+        0,
+        0,
+        255
+      ]
+    },
+    {
       "id": 20,
-      "timestamp": 6.369,
-      "rank": 8,
+      "timestamp": 7.013,
+      "rank": 12,
       "direction": "crossing",
       "class_name": "person",
       "lane": 18,
@@ -125,26 +181,40 @@
       ]
     },
     {
-      "id": 24,
-      "timestamp": 7.013,
-      "rank": 9,
+      "id": 33,
+      "timestamp": 7.419,
+      "rank": 13,
       "direction": "crossing",
       "class_name": "person",
-      "lane": null,
-      "color_name": "灰色",
+      "lane": 28,
+      "color_name": "黑色",
       "color_bgr": [
-        128,
-        128,
-        128
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": 32,
-      "timestamp": 7.589,
-      "rank": 10,
+      "id": 35,
+      "timestamp": 7.623,
+      "rank": 14,
       "direction": "crossing",
       "class_name": "person",
-      "lane": null,
+      "lane": 30,
+      "color_name": "红色",
+      "color_bgr": [
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "id": 24,
+      "timestamp": 8.165,
+      "rank": 15,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 22,
       "color_name": "黑色",
       "color_bgr": [
         0,
@@ -154,11 +224,95 @@
     },
     {
       "id": 29,
-      "timestamp": 8.3,
-      "rank": 11,
+      "timestamp": 8.741,
+      "rank": 16,
       "direction": "crossing",
       "class_name": "person",
-      "lane": null,
+      "lane": 25,
+      "color_name": "黑色",
+      "color_bgr": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 43,
+      "timestamp": 8.91,
+      "rank": 17,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 35,
+      "color_name": "黑色",
+      "color_bgr": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 38,
+      "timestamp": 8.91,
+      "rank": 18,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 33,
+      "color_name": "红色",
+      "color_bgr": [
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "id": 32,
+      "timestamp": 9.52,
+      "rank": 19,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 27,
+      "color_name": "灰色",
+      "color_bgr": [
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "id": 44,
+      "timestamp": 9.588,
+      "rank": 20,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 36,
+      "color_name": "黑色",
+      "color_bgr": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 47,
+      "timestamp": 9.96,
+      "rank": 21,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 39,
+      "color_name": "绿色",
+      "color_bgr": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "id": 49,
+      "timestamp": 10.197,
+      "rank": 22,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 40,
       "color_name": "黑色",
       "color_bgr": [
         0,
@@ -168,81 +322,53 @@
     },
     {
       "id": 36,
-      "timestamp": 8.876,
-      "rank": 12,
+      "timestamp": 10.536,
+      "rank": 23,
       "direction": "crossing",
       "class_name": "person",
-      "lane": null,
-      "color_name": "灰色",
+      "lane": 31,
+      "color_name": "黑色",
       "color_bgr": [
-        128,
-        128,
-        128
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 40,
+      "timestamp": 10.706,
+      "rank": 24,
+      "direction": "crossing",
+      "class_name": "person",
+      "lane": 34,
+      "color_name": "红色",
+      "color_bgr": [
+        0,
+        0,
+        255
       ]
     },
     {
       "id": 37,
-      "timestamp": 11.078,
-      "rank": 13,
+      "timestamp": 11.485,
+      "rank": 25,
       "direction": "crossing",
       "class_name": "person",
-      "lane": null,
+      "lane": 32,
       "color_name": "红色",
       "color_bgr": [
         0,
         0,
         255
-      ]
-    },
-    {
-      "id": 49,
-      "timestamp": 11.451,
-      "rank": 14,
-      "direction": "crossing",
-      "class_name": "person",
-      "lane": null,
-      "color_name": "黑色",
-      "color_bgr": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "id": 50,
-      "timestamp": 11.722,
-      "rank": 15,
-      "direction": "crossing",
-      "class_name": "person",
-      "lane": null,
-      "color_name": "黑色",
-      "color_bgr": [
-        0,
-        0,
-        0
       ]
     },
     {
       "id": 55,
-      "timestamp": 12.162,
-      "rank": 16,
+      "timestamp": 12.366,
+      "rank": 26,
       "direction": "crossing",
       "class_name": "person",
-      "lane": null,
-      "color_name": "红色",
-      "color_bgr": [
-        0,
-        0,
-        255
-      ]
-    },
-    {
-      "id": 52,
-      "timestamp": 12.264,
-      "rank": 17,
-      "direction": "crossing",
-      "class_name": "person",
-      "lane": null,
+      "lane": 45,
       "color_name": "红色",
       "color_bgr": [
         0,

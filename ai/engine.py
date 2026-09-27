@@ -41,7 +41,7 @@ class AIEngine:
             # 衣服颜色识别
             self.color_detector = ClothingColorDetector(cache_frames=30)
             # 跑道分配器
-            self.lane_assigner = LaneAssigner(num_lanes=20, direction="horizontal")
+            self.lane_assigner = LaneAssigner(direction="horizontal", max_lanes=100)
         
         if mode in ["crowd", "all"]:
             # 默认统计区域（画面中央）
