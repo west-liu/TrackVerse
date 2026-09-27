@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>追迹 - 视频分析报告</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #0f0f1e; color: #e0e0e0; padding: 20px; }
+.header { text-align: center; padding: 30px 0; border-bottom: 1px solid #2a2a4a; margin-bottom: 30px; }
+.header h1 { font-size: 28px; color: #a78bfa; }
+.header .subtitle { color: #6b7280; margin-top: 8px; font-size: 14px; }
+.section { background: #1a1a2e; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #2a2a4a; }
+.section h2 { color: #a78bfa; font-size: 18px; margin-bottom: 16px; border-left: 3px solid #7c3aed; padding-left: 12px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+.stat-card { background: #16213e; border-radius: 8px; padding: 16px; text-align: center; }
+.stat-card .value { font-size: 28px; font-weight: 700; color: #4ade80; }
+.stat-card .label { font-size: 12px; color: #6b7280; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: center; border-bottom: 1px solid #2a2a4a; }
+th { color: #a78bfa; font-size: 13px; }
+td { font-size: 14px; }
+td.time { color: #4ade80; font-family: monospace; font-weight: 600; }
+.color-tag { padding: 2px 10px; border-radius: 12px; font-size: 12px; color: #fff; }
+.color-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.color-label { width: 60px; font-size: 13px; }
+.bar-bg { flex: 1; background: #2a2a4a; border-radius: 4px; height: 24px; overflow: hidden; }
+.bar-fill { background: linear-gradient(90deg, #7c3aed, #a78bfa); height: 100%; border-radius: 4px; }
+.color-count { width: 100px; font-size: 12px; color: #6b7280; }
+.screenshot { text-align: center; }
+.screenshot img { max-width: 100%; border-radius: 8px; border: 1px solid #2a2a4a; }
+.footer { text-align: center; color: #4b5563; font-size: 12px; padding: 20px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>🏃 追迹 - 视频分析报告</h1>
+    <div class="subtitle">视频: 16038578_2160_3840_30fps.mp4 | 生成时间: 2026-09-27 11:10:59</div>
+</div>
+
+<div class="section">
+    <h2>📊 基础统计</h2>
+    <div class="stats-grid">
+        <div class="stat-card"><div class="value">367</div><div class="label">总帧数</div></div>
+        <div class="stat-card"><div class="value">12.4s</div><div class="label">视频时长</div></div>
+        <div class="stat-card"><div class="value">6.4</div><div class="label">处理FPS</div></div>
+        <div class="stat-card"><div class="value">8</div><div class="label">同帧最多目标</div></div>
+        <div class="stat-card"><div class="value">48</div><div class="label">独立追踪ID数</div></div>
+        <div class="stat-card"><div class="value">17</div><div class="label">完赛人数</div></div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🏁 最终排名</h2>
+    <table>
+        <thead><tr><th>名次</th><th>选手编号</th><th>衣服颜色</th><th>追踪ID</th><th>冲线时间</th></tr></thead>
+        <tbody>
+        <tr>
+            <td>🥇</td>
+            <td>4</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#4</td>
+            <td class="time">0.34s</td>
+        </tr>
+        <tr>
+            <td>🥈</td>
+            <td>5</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#2</td>
+            <td class="time">0.54s</td>
+        </tr>
+        <tr>
+            <td>🥉</td>
+            <td>8</td>
+            <td><span class="color-tag" style="background:rgb(255,0,0)">红色</span></td>
+            <td>#8</td>
+            <td class="time">0.88s</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>11</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#11</td>
+            <td class="time">1.59s</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#6</td>
+            <td class="time">2.57s</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>15</td>
+            <td><span class="color-tag" style="background:rgb(255,0,0)">红色</span></td>
+            <td>#15</td>
+            <td class="time">3.66s</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>19</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#21</td>
+            <td class="time">4.91s</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>18</td>
+            <td><span class="color-tag" style="background:rgb(255,0,0)">红色</span></td>
+            <td>#20</td>
+            <td class="time">6.40s</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(128,128,128)">灰色</span></td>
+            <td>#24</td>
+            <td class="time">7.05s</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#32</td>
+            <td class="time">7.62s</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#29</td>
+            <td class="time">8.33s</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(128,128,128)">灰色</span></td>
+            <td>#36</td>
+            <td class="time">8.91s</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(255,0,0)">红色</span></td>
+            <td>#37</td>
+            <td class="time">11.11s</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#49</td>
+            <td class="time">11.48s</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(0,0,0)">黑色</span></td>
+            <td>#50</td>
+            <td class="time">11.76s</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(255,0,0)">红色</span></td>
+            <td>#55</td>
+            <td class="time">12.20s</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>None</td>
+            <td><span class="color-tag" style="background:rgb(255,0,0)">红色</span></td>
+            <td>#52</td>
+            <td class="time">12.30s</td>
+        </tr></tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>🎨 颜色分布</h2>
+    <div class="color-bar"><span class="color-label">黑色</span><div class="bar-bg"><div class="bar-fill" style="width:52.94117647058824%"></div></div><span class="color-count">9人 (53%)</span></div><div class="color-bar"><span class="color-label">红色</span><div class="bar-bg"><div class="bar-fill" style="width:35.294117647058826%"></div></div><span class="color-count">6人 (35%)</span></div><div class="color-bar"><span class="color-label">灰色</span><div class="bar-bg"><div class="bar-fill" style="width:11.76470588235294%"></div></div><span class="color-count">2人 (12%)</span></div>
+</div>
+
+<div class="section">
+    <h2>📸 结果截图</h2>
+    <div class="screenshot">
+        <img src="result.jpg" alt="最终排名截图">
+    </div>
+</div>
+
+<div class="footer">
+    追迹系统 | 基于YOLOv8 + ByteTrack + HSV颜色识别 | Anker黑客松 2026
+</div>
+</body>
+</html>
