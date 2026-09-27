@@ -237,10 +237,10 @@ def main():
     # 终点线
     if args.line_orientation == "horizontal":
         line_y = int(disp_h * args.line_pos)
-        engine.set_line(50, line_y, disp_w - 50, line_y, direction="both")
+        engine.set_line(0, line_y, disp_w, line_y, direction="both")
     else:
         line_x = int(disp_w * args.line_pos)
-        engine.set_line(line_x, 50, line_x, disp_h - 50, direction="both")
+        engine.set_line(line_x, 0, line_x, disp_h, direction="both")
 
     # 视频输出
     out_video_path = os.path.join(output_dir, "annotated.mp4")

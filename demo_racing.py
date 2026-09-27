@@ -176,12 +176,12 @@ def main():
     
     if args.line_orientation == "horizontal":
         line_y = int(disp_h * args.line_pos)
-        engine.set_line(50, line_y, disp_w - 50, line_y, direction="both")
-        print(f"终点线(横线): y={line_y}")
+        engine.set_line(0, line_y, disp_w, line_y, direction="both")
+        print(f"终点线(横线): y={line_y} (全宽0->{disp_w})")
     else:
         line_x = int(disp_w * args.line_pos)
-        engine.set_line(line_x, 50, line_x, disp_h - 50, direction="both")
-        print(f"终点线(竖线): x={line_x}")
+        engine.set_line(line_x, 0, line_x, disp_h, direction="both")
+        print(f"终点线(竖线): x={line_x} (全高0->{disp_h})")
     
     print("\n按S开始 / 按R重置 / 空格暂停 / 按Q退出\n")
     
