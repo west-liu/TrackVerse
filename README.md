@@ -60,29 +60,92 @@ eufy SoloCam E30 (Web SDK取流)
 │   └── text_renderer.py        # 中文渲染(PIL)
 ├── backend/
 │   └── main.py                 # FastAPI后端服务
-├── demo_racing.py              # 竞速Demo入口
+├── demo_racing.py              # 竞速Demo入口（实时窗口）
 ├── demo_crowd.py               # 客流Demo入口
+├── run_analysis.py             # 自动化分析脚本（一键生成报告）
 ├── requirements.txt            # Python依赖
-└── screenshots/               # Demo截图和视频
+├── output/demo/                # 分析结果
+│   ├── annotated.mp4           # 标注视频(16MB)
+│   ├── demo_preview.mp4        # 压缩预览版(3.2MB)
+│   ├── result.jpg              # 最终排名截图
+│   ├── report.html             # HTML可视化报告
+│   ├── report.json             # JSON数据报告
+│   └── frame_log.csv           # 逐帧CSV日志
+└── screenshots/               # 效果截图
 ```
 
 ## 快速开始
 
-```bash
-# 安装依赖
-pip install -r requirements.txt
+### 1. 安装依赖
 
-# 运行竞速Demo（用视频文件）
+```bash
+pip install -r requirements.txt
+```
+
+> 国内用户推荐使用清华镜像源：
+> `pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple`
+
+### 2. 自动化分析（推荐，一键生成报告）
+
+输入一个视频，自动生成标注视频+截图+HTML报告+JSON+CSV日志：
+
+```bash
+# 基本用法
+python run_analysis.py --video your_video.mp4
+
+# 完整参数（竖屏视频，终点线在画面中间）
+python run_analysis.py --video your_video.mp4 --line-orientation vertical --line-pos 0.5 --auto-start 1 --lane-direction vertical
+
+# 横屏视频
+python run_analysis.py --video your_video.mp4 --line-orientation horizontal --line-pos 0.8 --auto-start 1 --lane-direction horizontal
+```
+
+输出目录：`output/视频名/`
+- `annotated.mp4` — 标注后的视频
+- `result.jpg` — 最终排名截图
+- `report.html` — HTML可视化报告（浏览器打开即可）
+- `report.json` — JSON数据报告
+- `frame_log.csv` — 逐帧检测日志
+
+### 3. 实时窗口Demo（交互式）
+
+```bash
+# 用视频文件
 python demo_racing.py --video your_video.mp4 --line-orientation vertical --line-pos 0.5 --auto-start 1 --lane-direction vertical
 
-# 运行竞速Demo（用摄像头）
+# 用电脑摄像头
 python demo_racing.py --video 0
 
-# 保存Demo结果
+# 保存结果
 python demo_racing.py --video your_video.mp4 --save output.mp4 --save-frame result.jpg
 ```
 
-## 操作说明
+### 4. 查看分析报告
+
+```bash
+# 打开HTML报告
+start output/your_video/report.html
+
+# 播放标注视频
+start output/your_video/annotated.mp4
+```
+
+## 参数说明
+
+| 参数 | 默认值 | 说明 |
+|------|--------|------|
+| `--video` | 必填 | 视频路径，`0`为摄像头 |
+| `--model` | yolov8n.pt | YOLO模型路径 |
+| `--line-orientation` | vertical | 终点线方向：vertical(竖线) / horizontal(横线) |
+| `--line-pos` | 0.5 | 终点线位置（0-1，0.5=画面中间） |
+| `--auto-start` | 1 | 第几帧自动开始比赛 |
+| `--lane-direction` | vertical | 编号分配方向：vertical(从上到下) / horizontal(从左到右) |
+| `--max-width` | 720 | 显示窗口最大宽度 |
+| `--max-height` | 900 | 显示窗口最大高度 |
+| `--save` | 无 | 保存输出视频路径 |
+| `--save-frame` | 无 | 保存最终截图路径 |
+
+## 实时窗口操作
 
 | 按键 | 功能 |
 |------|------|
@@ -90,6 +153,29 @@ python demo_racing.py --video your_video.mp4 --save output.mp4 --save-frame resu
 | R | 重置比赛 |
 | 空格 | 暂停/继续 |
 | Q | 退出 |
+
+## Demo结果
+
+以路跑比赛视频为例（8-10人跑步，12秒）：
+
+| 指标 | 结果 |
+|------|------|
+| 总帧数 | 367 |
+| 视频时长 | 12.4s |
+| 处理速度 | 6.4 FPS |
+| 同帧最多目标 | 8人 |
+| 独立追踪ID | 48个 |
+| 完赛人数 | 17人 |
+
+最终排名（前5）：
+
+| 名次 | 选手 | 衣服颜色 | 冲线时间 |
+|------|------|---------|---------|
+| 🥇 1 | 4号 | 黑色 | 0.30s |
+| 🥈 2 | 5号 | 黑色 | 0.51s |
+| 🥉 3 | 8号 | 红色 | 0.85s |
+| 4 | 11号 | 黑色 | 1.56s |
+| 5 | 6号 | 黑色 | 2.54s |
 
 ## 硬件选型
 
